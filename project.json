@@ -1,0 +1,11 @@
+{
+    "id":"rti.connext.systems.shapes",
+    "type":"package",
+    "value": {
+        "use": [
+            "rti.connext",
+            "reflecs",
+            "reflecs.components.transform"
+        ]
+    }
+}
