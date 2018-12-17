@@ -1,7 +1,7 @@
 #ifndef ECS_SYSTEMS_SHAPES_H
 #define ECS_SYSTEMS_SHAPES_H
 
-#include <reflecs/reflecs.h>
+#include "prebaked.h"
 
 #ifdef __cplusplus
 extern "C" {
