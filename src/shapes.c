@@ -1,7 +1,6 @@
 #include <include/shapes.h>
 #include "src/gen/ShapeType.h"
 #include "src/gen/ShapeTypeSupport.h"
-#include <reflecs/components/transform/transform.h>
 
 #define DOMAIN_ID (0)
 #define TOPIC_NAME "Square"
