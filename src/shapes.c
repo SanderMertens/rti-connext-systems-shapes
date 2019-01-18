@@ -20,10 +20,10 @@ void DdsSync(EcsRows *rows) {
 
     void *row;
     for (row = rows->first; row < rows->last; row = ecs_next(rows, row)) {
-        EcsHandle entity = ecs_entity(row);
-        EcsPosition2D *p = ecs_column(rows, row, 1);
-        EcsRotation2D *r = ecs_column(rows, row, 2);
-        Size *size = ecs_column(rows, row, 3);
+        EcsEntity entity = ecs_entity(rows, row, ECS_ROW_ENTITY);
+        EcsPosition2D *p = ecs_data(rows, row, 1);
+        EcsRotation2D *r = ecs_data(rows, row, 2);
+        Size *size = ecs_data(rows, row, 3);
 
         ShapeTypeExtended instance;
         instance.parent.color = colors[entity % (sizeof(colors) / sizeof(char*))];

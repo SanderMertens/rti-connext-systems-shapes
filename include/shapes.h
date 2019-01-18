@@ -10,8 +10,8 @@ extern "C" {
 typedef float Size;
 
 typedef struct EcsSystemsShapesHandles {
-    EcsHandle DdsSync;
-    EcsHandle Size;
+    EcsEntity DdsSync;
+    EcsEntity Size;
 } EcsSystemsShapesHandles;
 
 void EcsSystemsShapes(
