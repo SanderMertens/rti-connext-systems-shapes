@@ -14,7 +14,7 @@ typedef struct DdsEntities {
 
 /* -- System that synchronizes entities (shapes) to DDS -- */
 void DdsSync(EcsRows *rows) {
-    DdsEntities *w = ecs_column(rows, NULL, 0);
+    DdsEntities *w = ecs_data(rows, NULL, 0);
     ShapeTypeExtendedDataWriter *dw = ShapeTypeExtendedDataWriter_narrow(w->dw);
     char *colors[] = {"PURPLE", "BLUE", "RED", "GREEN", "YELLOW", "CYAN", "MAGENTA", "ORANGE"};
 
@@ -41,7 +41,7 @@ void DdsSync(EcsRows *rows) {
 void DdsDeinit(EcsRows *rows) {
     void *row;
     for (row = rows->first; row < rows->last; row = ecs_next(rows, row)) {
-        DdsEntities *writer = ecs_column(rows, row, 0);
+        DdsEntities *writer = ecs_data(rows, row, 0);
         if (writer->dp)
             DDS_DomainParticipant_delete_contained_entities(writer->dp);
     }
@@ -51,7 +51,7 @@ void DdsInit(EcsRows *rows) {
     void *row;
 
     for (row = rows->first; row < rows->last; row = ecs_next(rows, row)) {
-        DdsEntities *writer = ecs_column(rows, row, 0);
+        DdsEntities *writer = ecs_data(rows, row, 0);
         writer->dp = DDS_DomainParticipantFactory_create_participant(
             DDS_TheParticipantFactory, DOMAIN_ID, &DDS_PARTICIPANT_QOS_DEFAULT,
             NULL, DDS_STATUS_MASK_NONE);
